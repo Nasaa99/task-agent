@@ -4,6 +4,8 @@ A simple AI agent that turns plain English into real actions. You type one sente
 
 Live demo: https://task-agent-9p7p.onrender.com
 
+Note: the live demo runs on Render's free tier, so if it has been sitting idle it can take up to a minute to wake up on the first load. Just wait for it or refresh once.
+
 ## What it can do
 
 - Todos: add, list, complete, delete
