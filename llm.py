@@ -39,7 +39,16 @@ def get_plan(request_text, state_text):
     if not api_key_available():
         return None, "No GEMINI_API_KEY set"
 
-    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+    try:
+        # A 20s per-call timeout keeps one slow Gemini call from hanging the
+        # request; get_plan then falls back instead of being killed by the
+        # web server's worker timeout.
+        client = genai.Client(
+            api_key=os.getenv("GEMINI_API_KEY", "").strip(),
+            http_options=types.HttpOptions(timeout=20000),
+        )
+    except Exception as e:
+        return None, f"Could not start the Gemini client: {e}"
     prompt = PROMPT_TEMPLATE.replace("{state}", state_text).replace("{request}", request_text)
 
     # Try the main model 3 times, then the backup model once
