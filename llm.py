@@ -56,8 +56,10 @@ def get_plan(request_text, state_text):
         try:
             return ask_gemini(client, model, prompt), None
         except errors.APIError as e:
-            # 503 = model busy, 429 = out of quota / rate limited
-            if e.code not in (429, 503):
+            # 503 = model busy, 429 = out of quota / rate limited,
+            # 504 = the model took too long once; all three are
+            # temporary, so retry with the next attempt or model.
+            if e.code not in (429, 503, 504):
                 return None, f"Gemini error: {e.code}"
             print(f"{model} failed ({e.code}), retrying...")
         except (json.JSONDecodeError, ValueError):
