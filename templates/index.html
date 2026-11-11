@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskAgent</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>TaskAgent</h1>
+    <p class="sub">Tell me what to do in plain English. I turn your request into a plan and run it: todos, notes, and quick math.</p>
+
+    <form id="agent-form">
+      <input id="request" type="text" placeholder="e.g. Add a todo to study for my exam and save a note that it covers chapters 4 to 6" autocomplete="off">
+      <button type="submit" id="run-btn">Run</button>
+    </form>
+
+    <div class="examples">
+      <span>Try:</span>
+      <button class="chip">Add a todo to study for my exam and save a note that the exam covers chapters 4 to 6</button>
+      <button class="chip">What is 15 percent of 240?</button>
+      <button class="chip">Show my todos</button>
+      <button class="chip">Delete todo 1</button>
+    </div>
+
+    <p id="status"></p>
+
+    <div id="confirm-box" class="hidden">
+      <p id="confirm-text"></p>
+      <button id="confirm-btn">Yes, run it</button>
+      <button id="cancel-btn">Cancel</button>
+    </div>
+
+    <section id="results-section" class="hidden">
+      <h2>What happened</h2>
+      <ul id="results"></ul>
+    </section>
+
+    <div class="columns">
+      <section>
+        <h2>Todos</h2>
+        <ul id="todos"></ul>
+      </section>
+      <section>
+        <h2>Notes</h2>
+        <ul id="notes"></ul>
+      </section>
+    </div>
+
+    <section>
+      <h2>Recent activity (action log)</h2>
+      <ul id="logs"></ul>
+    </section>
+  </main>
+  <script src="/static/script.js"></script>
+</body>
+</html>

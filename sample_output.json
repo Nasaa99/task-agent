@@ -1,0 +1,58 @@
+{
+  "plan": {
+    "actions": [
+      {
+        "action": "create_todo",
+        "title": "Study for my CS4680 exam"
+      },
+      {
+        "action": "create_note",
+        "content": "The exam covers chapters 4 to 6",
+        "title": "Note"
+      }
+    ]
+  },
+  "results": [
+    {
+      "action": "create_todo",
+      "message": "Added todo #1: Study for my CS4680 exam",
+      "status": "done"
+    },
+    {
+      "action": "create_note",
+      "message": "Saved note #1: Note",
+      "status": "done"
+    }
+  ],
+  "source": "demo parser (no API key or API down)",
+  "state": {
+    "logs": [
+      {
+        "action": "create_note",
+        "detail": "Saved note #1: Note",
+        "status": "done",
+        "time": "01:49 PM"
+      },
+      {
+        "action": "create_todo",
+        "detail": "Added todo #1: Study for my CS4680 exam",
+        "status": "done",
+        "time": "01:49 PM"
+      }
+    ],
+    "notes": [
+      {
+        "content": "The exam covers chapters 4 to 6",
+        "id": 1,
+        "title": "Note"
+      }
+    ],
+    "todos": [
+      {
+        "done": 0,
+        "id": 1,
+        "title": "Study for my CS4680 exam"
+      }
+    ]
+  }
+}
